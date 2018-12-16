@@ -19,3 +19,9 @@ class GameMap:
         tiles[32][22].blocks_sight = True
 
         return tiles 
+
+    def is_blocked(self, x, y):
+        if self.tiles[x][y].blocked:
+            return True
+        return False
+        
