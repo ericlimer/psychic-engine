@@ -16,6 +16,10 @@ def main():
     map_width = 80
     map_height = 70
 
+    room_max_size = 12
+    room_min_size = 6
+    max_rooms = 30
+
     colors = {
 
         'dark_wall': libtcod.Color(45, 65, 100),
@@ -24,7 +28,7 @@ def main():
     }
 
 
-    player = Entity(int(screen_width / 2), int(screen_height / 2), '@', libtcod.white)
+    player = Entity(24, 17, '@', libtcod.white)
     entities = [player]
 
     libtcod.console_set_custom_font('arial10x10.png', libtcod.FONT_TYPE_GREYSCALE | libtcod.FONT_LAYOUT_TCOD)
@@ -34,6 +38,8 @@ def main():
     con = libtcod.console_new(screen_width, screen_height)
 
     game_map = GameMap(map_width, map_height)
+    
+    game_map.make_map(max_rooms, room_min_size, room_max_size, map_width, map_height, player)
 
     
 
